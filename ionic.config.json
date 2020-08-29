@@ -1,0 +1,7 @@
+{
+  "name": "bark",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
