@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {DefaultDataService, HttpUrlGenerator} from '@ngrx/data';
 import {Observable} from 'rxjs';
 
+import {environment} from '../../../../environments/environment';
 import {Pwt} from '../../shared/models/pwt.model';
 
 
@@ -13,6 +14,6 @@ export class PwtDataService extends DefaultDataService<Pwt> {
     }
 
     getById(id: string | number): Observable<Pwt> {
-        return this.http.get<Pwt>(`https://burguerbot-staging.herokuapp.com/port/${id}`);
+        return this.http.get<Pwt>(`${environment.herokuBackend}/port/${id}`);
     }
 }

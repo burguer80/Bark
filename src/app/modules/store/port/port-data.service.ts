@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {DefaultDataService, HttpUrlGenerator} from '@ngrx/data';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+
+import {environment} from '../../../../environments/environment';
 import {Port} from '../../shared/models/port.model';
 
 @Injectable()
@@ -11,6 +13,6 @@ export class PortDataService extends DefaultDataService<Port>{
   }
 
   getAll(): Observable<Port[]> {
-    return this.http.get<Port[]>('https://storage.googleapis.com/borderbot-staging.appspot.com/ports.json');
+    return this.http.get<Port[]>(`${environment.herokuBackend}/ports.json`);
   }
 }
