@@ -8,7 +8,7 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 import {EntityStoreModule} from '../modules/store/entity-store.module';
-import {PortResolver} from '../modules/store/resolvers/port.resolver';
+import {PortResolver} from '../modules/shared/resolvers/port.resolver';
 
 @NgModule({
   imports: [
