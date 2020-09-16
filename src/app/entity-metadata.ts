@@ -1,6 +1,9 @@
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
 
-const entityMetadata: EntityMetadataMap = {};
+const entityMetadata: EntityMetadataMap = {
+  Port: {},
+  Pwt: {}
+};
 
 const pluralNames = {  };
 

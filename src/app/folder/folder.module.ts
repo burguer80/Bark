@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
+import {EntityStoreModule} from '../modules/store/entity-store.module';
+import {PortResolver} from '../modules/store/resolvers/port.resolver';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    FolderPageRoutingModule,
+    EntityStoreModule
   ],
-  declarations: [FolderPage]
+  declarations: [FolderPage],
+  providers: [PortResolver]
 })
 export class FolderPageModule {}
