@@ -3,10 +3,10 @@ import {EntityCollectionServiceBase, EntityCollectionServiceElementsFactory} fro
 import {Port} from '../../shared/models/port.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class PortEntityService extends EntityCollectionServiceBase<Port> {
-  constructor(serviceElementFactory: EntityCollectionServiceElementsFactory) {
-    super('Port', serviceElementFactory);
-  }
+    constructor(serviceElementFactory: EntityCollectionServiceElementsFactory) {
+        super('Port', serviceElementFactory);
+    }
 }

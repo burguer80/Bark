@@ -3,6 +3,7 @@ import {EntityCollectionServiceBase, EntityCollectionServiceElementsFactory} fro
 
 import {Pwt} from '../../shared/models/pwt.model';
 import {Observable} from 'rxjs';
+import { map, tap} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,21 @@ export class PwtEntityService extends EntityCollectionServiceBase<Pwt> {
         super('Pwt', serviceElementsFactory);
     }
 
-    getOrLoadPwt(id: string | number): Observable<Pwt> {
-        return this.getByKey(id);
+    public getFirstOrLoadPwt(id: string | number): Observable<Pwt> {
+        return this.filteredEntities$.pipe(
+            map(portWaitTimes => portWaitTimes.find((pwt: Pwt) => pwt.port_number === id)),
+            tap(pwt => {
+                if (!pwt) {
+                    this.getByKey(id);
+                }
+            }),
+        );
     }
+
+    public pwtLoaded$(id: string | number): Observable<boolean>{
+        return this.getFirstOrLoadPwt(id).pipe(
+            map((pwt: Pwt) => !!pwt)
+        );
+    }
+
 }

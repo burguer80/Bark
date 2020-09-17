@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FolderPage } from './folder.page';
 import {PortResolver} from '../modules/shared/resolvers/port.resolver';
+import {PwtResolver} from '../modules/shared/resolvers/pwt.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: FolderPage,
     resolve: {
-      ports: PortResolver
+      port: PortResolver,
+      pwt: PwtResolver
     }
   }
 ];
