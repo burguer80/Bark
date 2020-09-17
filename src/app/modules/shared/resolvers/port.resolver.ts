@@ -22,7 +22,7 @@ export class PortResolver implements Resolve<boolean> {
             map(portWaitTimes => portWaitTimes.find((pwt: Pwt) => pwt.port_number === portId)),
             tap(pwt => {
                 if (!pwt) {
-                    this.pwtFacade.getByKey(portId);
+                    this.pwtFacade.getOrLoadPwt(portId);
                 }
             }),
             filter(pwt => !!pwt),
