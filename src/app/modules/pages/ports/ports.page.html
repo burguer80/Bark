@@ -1,31 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>All Ports</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>All Ports</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <!-- List of Input Items -->
-  <ion-list>
-    <ion-item-divider>
-      <ion-label>C</ion-label>
-    </ion-item-divider>
-    <ion-list-header>
-      <h5>Recent Conversations</h5>
-    </ion-list-header>
 
-    <ion-item *ngFor=" let port of ports$ | async ">
-      <ion-label>
-        {{port.details.crossing_name}} -
-        {{port.details.border_name}} -
-        {{port.details.name}} -
-        {{port.details.hours}} -
-      </ion-label>
-      <ion-toggle slot="end"></ion-toggle>
-    </ion-item>
+    <!-- List of Input Items -->
+    <ion-list>
+        <ion-item-divider>
+            <ion-label>C</ion-label>
+        </ion-item-divider>
+        <ion-list-header>
+            <h5>Recent Conversations</h5>
+        </ion-list-header>
 
+        <ion-item *ngFor=" let port of ports$ | async ">
+            <ion-label>
+                {{port.details.crossing_name}} -
+                {{port.details.border_name}} -
+                {{port.details.name}} -
+                {{port.details.hours}} -
+            </ion-label>
+            <ion-toggle slot="end" (ionChange)="getPwt(port.number)"></ion-toggle>
+        </ion-item>
 
-
-  </ion-list>
-
+    </ion-list>
+</ion-content>
