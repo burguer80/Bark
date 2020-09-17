@@ -18,7 +18,7 @@ export class PortResolver implements Resolve<boolean> {
             .pipe(
                 tap(loaded => {
                     if (!loaded) {
-                        this.portFacade.getAll();
+                        this.portFacade.loadPorts();
                     } else {
                     }
                 }),
