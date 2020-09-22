@@ -6,9 +6,13 @@
 
 <ion-content>
 
-
     <!-- List of Input Items -->
     <ion-list>
+        <div *ngIf="(portWaitTimes$ | async) as portWaitTimes">sss
+            <li *ngFor="let pwt of portWaitTimes; index as i;">
+                {{pwt.id}}  {{pwt.port_number}} {{pwt.updated_at| date}}
+            </li>
+        </div>
         <ion-item-divider>
             <ion-label>C</ion-label>
         </ion-item-divider>
@@ -23,7 +27,8 @@
                 {{port.details.name}} -
                 {{port.details.hours}} -
             </ion-label>
-            <ion-toggle slot="end" (ionChange)="getPwt(port.number)"></ion-toggle>
+            <ion-checkbox slot="end" (ionChange)="onChange($event, port)"
+                          [checked]="pwtFacade.pwtLoaded(port.number) | async"></ion-checkbox>
         </ion-item>
 
     </ion-list>
