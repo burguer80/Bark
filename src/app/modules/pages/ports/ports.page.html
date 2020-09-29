@@ -10,7 +10,7 @@
     <ion-list>
         <div *ngIf="(portWaitTimes$ | async) as portWaitTimes">sss
             <li *ngFor="let pwt of portWaitTimes; index as i;">
-                {{pwt.id}}  {{pwt.port_number}} {{pwt.updated_at| date}}
+                {{pwt.id}}  {{pwt.id}} {{pwt.updated_at| date}}
             </li>
         </div>
         <ion-item-divider>

@@ -25,7 +25,7 @@ export class PwtEntityService extends EntityCollectionServiceBase<Pwt> {
 
     public getFirstPwt(id: string | number): Observable<Pwt> {
         return this.filteredEntities$.pipe(
-            map(portWaitTimes => portWaitTimes.find((pwt: Pwt) => pwt.port_number === id)),
+            map(portWaitTimes => portWaitTimes.find((pwt: Pwt) => pwt.id === id)),
         );
     }
 

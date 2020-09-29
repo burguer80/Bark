@@ -17,7 +17,7 @@
     <div id="container">
         <div *ngIf="(pwts | async) as portWaitTimes">
             <li *ngFor="let pwt of portWaitTimes; index as i;">
-                {{pwt.id}}  {{pwt.port_number}} {{pwt.updated_at| date}}
+                {{pwt.id}} {{pwt.updated_at| date}}
             </li>
         </div>
 
@@ -27,12 +27,11 @@
 
         <div *ngIf="(pwt$ | async) as pwt">
             <li>
-            {{pwt.port_number}}
-        <strong class="capitalize">{{ pwt.port_number }}</strong>
+                <strong class="capitalize">{{ pwt.id }}</strong>
             </li>
 
-        <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
-            Components</a></p>
+            <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
+                Components</a></p>
         </div>
     </div>
 </ion-content>

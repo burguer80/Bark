@@ -1,6 +1,5 @@
 export interface Pwt {
     id: number;
-    port_number: string;
     details: {
         name: string;
         hours: string;
