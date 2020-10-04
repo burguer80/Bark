@@ -17,6 +17,7 @@ import {PortListRow} from '../../shared/models/port-list-row.model';
 })
 export class PortsPage implements OnInit {
     public portsListRows$: Observable<PortListRow[]> = this.portFacade.portListRows$;
+    public filterText = '';
 
     constructor(
         private portFacade: PortEntityService,
@@ -27,7 +28,7 @@ export class PortsPage implements OnInit {
     ngOnInit() {
     }
 
-    onChange(event: CustomEvent, port: Port): void {
+    public onChange(event: CustomEvent, port: Port): void {
         if (event.detail.checked) {
             this.pwtFacade.getFirstOrLoadPwt(port.number).pipe(
                 take(1)
@@ -38,5 +39,9 @@ export class PortsPage implements OnInit {
                 tap((pwt) => this.pwtFacade.delete(pwt.id))
             ).subscribe();
         }
+    }
+
+    public onSearchChange($event): void {
+        this.filterText = $event.detail.value;
     }
 }

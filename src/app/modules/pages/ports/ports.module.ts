@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 
 
+import {PipesModule} from '../../shared/pipes/pipes.module';
 import {PortsPage} from './ports.page';
 import {PortsPageRoutingModule} from './ports-routing.module';
 import {PortResolver} from '../../shared/resolvers/port.resolver';
@@ -14,6 +15,7 @@ import {PortResolver} from '../../shared/resolvers/port.resolver';
         CommonModule,
         FormsModule,
         IonicModule,
+        PipesModule,
         PortsPageRoutingModule
     ],
     declarations: [PortsPage],
