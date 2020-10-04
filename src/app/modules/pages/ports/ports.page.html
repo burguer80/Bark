@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Ports List</ion-title>
+    </ion-toolbar>
+    <ion-searchbar
+            debounce="250"
+            (ionChange)="onSearchChange($event)"
+            placeholder="Search for Ports"
+            showCancelButton="focus"
+            animated></ion-searchbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ng-container *ngFor=" let port of portsListRows$ | async | portSearch:filterText ">
+            <ion-item-divider>
+                <ion-label>{{port.name}}</ion-label>
+            </ion-item-divider>
+
+            <ion-item *ngFor=" let crossing of port.crossings  ">
+                <ion-label>
+                    {{crossing.details.crossing_name || crossing.details.name}}
+                </ion-label>
+                <ion-checkbox slot="end" (ionChange)="onChange($event, crossing)"
+                              [checked]="pwtFacade.pwtLoaded(crossing.number) | async"></ion-checkbox>
+            </ion-item>
+
+        </ng-container>
+    </ion-list>
+</ion-content>

@@ -1,28 +1,29 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {filter, first, tap} from 'rxjs/operators';
+import {filter, take, tap} from 'rxjs/operators';
 
-import {PortEntityService} from '../../store/port/port-entity.service';
+import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 
 @Injectable()
-export class PortResolver implements Resolve<boolean> {
+export class PwtResolver implements Resolve<boolean> {
     constructor(
-        private portFacade: PortEntityService,
+        private pwtFacade: PwtEntityService,
     ) {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+        const portId: string = route.paramMap.get('id');
 
-        return this.portFacade.loaded$
+        return this.pwtFacade.pwtLoaded(portId)
             .pipe(
-                tap(loaded => {
+                tap((loaded) => {
                     if (!loaded) {
-                        this.portFacade.loadPorts();
+                        this.pwtFacade.getByKey(portId);
                     }
                 }),
                 filter(loaded => !!loaded),
-                first(),
+                take(1)
             );
     }
 }

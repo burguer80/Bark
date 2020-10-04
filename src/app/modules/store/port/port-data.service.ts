@@ -13,6 +13,6 @@ export class PortDataService extends DefaultDataService<Port>{
   }
 
   getAll(): Observable<Port[]> {
-    return this.http.get<Port[]>(`${environment.herokuBackend}/ports.json`);
+    return this.http.get<Port[]>(`${environment.cdn}/ports.json`);
   }
 }

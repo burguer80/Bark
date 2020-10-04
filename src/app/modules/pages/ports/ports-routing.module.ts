@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FolderPage } from './folder.page';
-import {PortResolver} from '../modules/shared/resolvers/port.resolver';
-import {PwtResolver} from '../modules/shared/resolvers/pwt.resolver';
+import { PortsPage } from './ports.page';
+import {PortResolver} from '../../shared/resolvers/port.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: FolderPage,
+    component: PortsPage,
     resolve: {
       port: PortResolver,
-      pwt: PwtResolver
     }
   }
 ];
@@ -20,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FolderPageRoutingModule {}
+export class PortsPageRoutingModule {}
