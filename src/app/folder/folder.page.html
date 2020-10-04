@@ -22,7 +22,7 @@
         </div>
 
         <div *ngIf=" (port$ | async) as port">
-            {{port.number}}  {{port.details.crossing_name }}
+            {{port.id}}  {{port.details.crossing_name }}
         </div>
 
         <div *ngIf="(pwt$ | async) as pwt">
