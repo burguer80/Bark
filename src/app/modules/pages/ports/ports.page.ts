@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
+import {take, tap} from 'rxjs/operators';
 
 
 import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 import {Port} from '../../shared/models/port.model';
 import {PortEntityService} from '../../store/port/port-entity.service';
-import {take, tap} from 'rxjs/operators';
-import {Pwt} from '../../shared/models/pwt.model';
+import {PortListRow} from '../../shared/models/port-list-row.model';
 
 @Component({
     selector: 'app-ports',
@@ -16,8 +16,7 @@ import {Pwt} from '../../shared/models/pwt.model';
 
 })
 export class PortsPage implements OnInit {
-    public ports$: Observable<Port[]> = this.portFacade.entities$;
-    public portWaitTimes$: Observable<Pwt[]> = this.pwtFacade.entities$;
+    public portsListRows$: Observable<PortListRow[]> = this.portFacade.portListRows$;
 
     constructor(
         private portFacade: PortEntityService,

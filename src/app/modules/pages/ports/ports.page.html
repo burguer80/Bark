@@ -1,36 +1,25 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>All Ports</ion-title>
+        <ion-title>Ports List</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-    <!-- List of Input Items -->
     <ion-list>
-        <div *ngIf="(portWaitTimes$ | async) as portWaitTimes">sss
-            <li *ngFor="let pwt of portWaitTimes; index as i;">
-                {{pwt.id}}  {{pwt.id}} {{pwt.updated_at| date}}
-            </li>
-        </div>
-        <ion-item-divider>
-            <ion-label>C</ion-label>
-        </ion-item-divider>
-        <ion-list-header>
-            <h5>Recent Conversations</h5>
-        </ion-list-header>
+        <ng-container *ngFor=" let port of portsListRows$ | async">
+            <ion-item-divider>
+                <ion-label>{{port.name}}</ion-label>
+            </ion-item-divider>
 
-        <ion-item *ngFor=" let port of ports$ | async ">
-            <ion-label>
-                {{port.details.crossing_name}} -
-                {{port.details.border_name}} -
-                {{port.details.name}} -
-                {{port.details.hours}} -
-            </ion-label>
-            <ion-checkbox slot="end" (ionChange)="onChange($event, port)"
-                          [checked]="pwtFacade.pwtLoaded(port.number) | async"></ion-checkbox>
-        </ion-item>
+            <ion-item *ngFor=" let crossing of port.crossings  ">
+                <ion-label>
+                    {{crossing.details.crossing_name || crossing.details.name}}
+                </ion-label>
+                <ion-checkbox slot="end" (ionChange)="onChange($event, crossing)"
+                              [checked]="pwtFacade.pwtLoaded(crossing.number) | async"></ion-checkbox>
+            </ion-item>
 
+        </ng-container>
     </ion-list>
 </ion-content>
 <!--TODO: Print all the ports alphabetically with letter dividers -->
