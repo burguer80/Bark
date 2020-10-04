@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   herokuBackend: 'https://burguerbot-staging.herokuapp.com',
-  cdn: 'https://storage.googleapis.com/borderbot-staging.appspot.com'
 };
 
 /*

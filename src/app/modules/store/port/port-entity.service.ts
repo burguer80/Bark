@@ -31,7 +31,7 @@ export class PortEntityService extends EntityCollectionServiceBase<Port> {
 
     public getFirstOrLoadPorts(id: string | number): Observable<Port> {
         return this.filteredEntities$.pipe(
-            map(ports => ports.find((port: Port) => port.number === id)),
+            map(ports => ports.find((port: Port) => port.id === id)),
             tap(ports => {
                 if (!ports) {
                     this.loadPorts();

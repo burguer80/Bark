@@ -30,11 +30,11 @@ export class PortsPage implements OnInit {
 
     public onChange(event: CustomEvent, port: Port): void {
         if (event.detail.checked) {
-            this.pwtFacade.getFirstOrLoadPwt(port.number).pipe(
+            this.pwtFacade.getFirstOrLoadPwt(port.id).pipe(
                 take(1)
             ).subscribe();
         } else {
-            this.pwtFacade.getFirstPwt(port.number).pipe(
+            this.pwtFacade.getFirstPwt(port.id).pipe(
                 take(1),
                 tap((pwt) => this.pwtFacade.delete(pwt.id))
             ).subscribe();
