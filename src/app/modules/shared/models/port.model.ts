@@ -1,6 +1,5 @@
 export interface Port {
     id: number;
-    number: string;
     details: {
         name: string;
         hours: string;
