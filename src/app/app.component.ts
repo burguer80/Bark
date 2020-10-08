@@ -13,14 +13,9 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: '250301',
-      url: '/folder/250301',
+      title: 'PWT',
+      url: '/pwt-list',
       icon: 'mail'
-    },
-    {
-      title: '250302',
-      url: '/folder/250302',
-      icon: 'paper-plane'
     },
     {
       title: '300401',

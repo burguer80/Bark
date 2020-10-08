@@ -1,0 +1,11 @@
+.times-container {
+  border: 1px solid red;
+  border-radius: 20px;
+  padding: 15px;
+
+  ion-col {
+    border: 1px solid blue;
+    padding: 15px;
+    text-align: center;
+  }
+}
