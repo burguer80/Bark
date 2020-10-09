@@ -1,11 +1,21 @@
+.time-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .times-container {
-  border: 1px solid red;
-  border-radius: 20px;
-  padding: 15px;
+  min-width: 360px;
+  border: 1px solid #92949c;
+  border-radius: 10px;
 
   ion-col {
-    border: 1px solid blue;
-    padding: 15px;
-    text-align: center;
+  }
+
+  ion-col:first-child {
+    border-right: 1px solid #92949c;
+  }
+
+  ion-col:last-child {
+    border-left: 1px solid #92949c;
   }
 }

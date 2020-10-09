@@ -12,46 +12,76 @@
         </ion-card-header>
 
         <ion-card-content>
-            <ion-grid class="times-container">
-                <ion-row class="ion-align-items-center">
-                    <ion-col>
-                        <ion-label>
-                            Standard
-                        </ion-label>
-                        <ion-text color="primary">
-                            <h1>1h 40m</h1>
-                        </ion-text>
-                        <ion-label color="danger">
-                            <ion-icon name="caret-up"></ion-icon> 40m
-                        </ion-label>
+            <ion-grid>
+                <ion-row class="times-container" size="12">
+                    <ion-col class="">
+                        <ion-row>
+                            <ion-label>Standard</ion-label>
+                        </ion-row>
+                        <ion-row>
+                            <ion-label class="time-value" color="primary">
+                                1h 40m
+                            </ion-label>
+                        </ion-row>
+                        <ion-row>
+                            <ion-label color="danger">
+                                <ion-icon name="caret-up"></ion-icon>
+                                40m
+                            </ion-label>
+                        </ion-row>
                     </ion-col>
                     <ion-col>
-                        <ion-label>
-                            Ready
-                        </ion-label>
-                        <ion-text color="primary">
-                            <h1>1h 10m</h1>
-                        </ion-text>
-                        <ion-label color="success">
-                            <ion-icon name="caret-down"></ion-icon> 10m
-                        </ion-label>
+                        <ion-row>
+                            <ion-text>Standard</ion-text>
+                        </ion-row>
+                        <ion-row>
+                            <ion-text class="time-value" color="primary">
+                                1h 10m
+                            </ion-text>
+                        </ion-row>
+                        <ion-row>
+                            <ion-label color="success">
+                                <ion-icon name="caret-down"></ion-icon>
+                                10m
+                            </ion-label>
+                        </ion-row>
                     </ion-col>
                     <ion-col>
-                        <ion-label>
-                            Standard
-                        </ion-label>
-                        <ion-text color="primary">
-                            <h1>40m</h1>
-                        </ion-text>
-                        <ion-label color="danger">
-                            <ion-icon name="caret-up"></ion-icon> 20m
-                        </ion-label>
+                        <ion-row>
+                            <ion-label>Standard</ion-label>
+                        </ion-row>
+                        <ion-row>
+                            <ion-label class="time-value" color="primary">
+                                40m
+                            </ion-label>
+                        </ion-row>
+                        <ion-row>
+                            <ion-label color="danger">
+                                <ion-icon name="caret-up"></ion-icon>
+                                40m
+                            </ion-label>
+                        </ion-row>
                     </ion-col>
                 </ion-row>
             </ion-grid>
-           Updated 1 hour ago
+            <ion-label>
+                Updated 1 hour ago
+            </ion-label>
         </ion-card-content>
     </ion-card>
 
 
+
+
+
+
+    <ion-item>
+        <ion-label position="fixed">Fixed</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Floating</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
 </ion-content>
