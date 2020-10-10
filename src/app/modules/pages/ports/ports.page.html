@@ -1,6 +1,11 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>Ports List</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="dismissModal()">
+                <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
     <ion-searchbar
             debounce="250"

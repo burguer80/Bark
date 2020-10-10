@@ -1,12 +1,17 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>pwt-list</ion-title>
+        <ion-title>Port Wait Times</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="openPorts()">
+                <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
     <ng-container *ngFor=" let pwt of pwts$ | async">
         <app-pwt [port]="portFacade.getFirstOrLoadPorts(pwt.id) | async" [pwt]="pwt"></app-pwt>
     </ng-container>
-    <app-pwt></app-pwt>
 </ion-content>

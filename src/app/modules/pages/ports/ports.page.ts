@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {take, tap} from 'rxjs/operators';
 
 
+import {ModalController} from '@ionic/angular';
 import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 import {Port} from '../../shared/models/port.model';
 import {PortEntityService} from '../../store/port/port-entity.service';
@@ -20,12 +21,17 @@ export class PortsPage implements OnInit {
     public filterText = '';
 
     constructor(
+        public modalController: ModalController,
         private portFacade: PortEntityService,
-        public pwtFacade: PwtEntityService
+        public pwtFacade: PwtEntityService,
     ) {
     }
 
     ngOnInit() {
+    }
+
+    public async dismissModal() {
+        return this.modalController.dismiss();
     }
 
     public onChange(event: CustomEvent, port: Port): void {

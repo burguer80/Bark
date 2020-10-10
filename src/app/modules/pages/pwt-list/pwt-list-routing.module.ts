@@ -1,17 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { PwtListPage } from './pwt-list.page';
+import {PortResolver} from '../../shared/resolvers/port.resolver';
+import {PwtListPage} from './pwt-list.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PwtListPage
-  }
+    {
+        path: '',
+        component: PwtListPage,
+        resolve: {
+            port: PortResolver,
+        }
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class PwtListPageRoutingModule {}
+export class PwtListPageRoutingModule {
+}

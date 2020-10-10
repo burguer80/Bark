@@ -3,6 +3,8 @@ import {PortEntityService} from '../../store/port/port-entity.service';
 import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 import {Observable} from 'rxjs';
 import {Pwt} from '../../shared/models/pwt.model';
+import {ModalController} from '@ionic/angular';
+import {PortsPage} from '../ports/ports.page';
 
 @Component({
     selector: 'app-pwt-list',
@@ -14,11 +16,19 @@ export class PwtListPage implements OnInit {
 
     constructor(
         private portFacade: PortEntityService,
-        private pwtFacade: PwtEntityService
+        private pwtFacade: PwtEntityService,
+        public modalController: ModalController
     ) {
     }
 
     ngOnInit() {
     }
 
+    async openPorts() {
+        const modal = await this.modalController.create({
+            component: PortsPage,
+            cssClass: 'my-custom-class'
+        });
+        return await modal.present();
+    }
 }
