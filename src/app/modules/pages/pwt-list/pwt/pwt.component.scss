@@ -1,0 +1,25 @@
+.time-value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.times-container {
+  border: 1px solid #92949c;
+  border-radius: 10px;
+  min-width: 260px;
+  padding: 10px;
+
+  ion-col {
+    ion-row {
+      justify-content: center;
+    }
+  }
+
+  ion-col:first-child {
+    border-right: 1px solid #92949c;
+  }
+
+  ion-col:last-child {
+    border-left: 1px solid #92949c;
+  }
+}
