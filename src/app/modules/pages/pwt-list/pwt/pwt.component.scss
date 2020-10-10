@@ -1,12 +1,27 @@
+.crossing_name {
+  font-size: 2.1rem;
+  margin-bottom: -5px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
 .time-value {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.time-variation {
+  font-size: 1rem;
 }
 
 .times-container {
   border: 1px solid #92949c;
   border-radius: 10px;
-  min-width: 260px;
+  margin: -10px 0 5px -5px;
+  min-width: 300px;
   padding: 10px;
 
   ion-col {
