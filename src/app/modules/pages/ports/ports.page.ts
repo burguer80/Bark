@@ -26,7 +26,7 @@ export class PortsPage implements OnInit {
         public modalController: ModalController,
         private portFacade: PortEntityService,
         public pwtFacade: PwtEntityService,
-        private router: Router
+        private router: Router,
     ) {
     }
 
@@ -34,8 +34,7 @@ export class PortsPage implements OnInit {
     }
 
     public async dismissModal() {
-        return this.modalCalled ? this.modalController.dismiss() :  this.router.navigate(['/pwt-list']);
-        // return this.modalController.dismiss();
+        return this.modalCalled ? this.modalController.dismiss() : this.navigateToPwtListPage();
     }
 
     public onChange(event: CustomEvent, port: Port): void {
@@ -53,5 +52,9 @@ export class PortsPage implements OnInit {
 
     public onSearchChange($event): void {
         this.filterText = $event.detail.value;
+    }
+
+    private navigateToPwtListPage() {
+        return this.router.navigate(['/pwt-list']);
     }
 }

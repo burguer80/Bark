@@ -29,7 +29,8 @@ export class PwtListPage implements OnInit {
             component: PortsPage,
             componentProps: {
                 modalCalled: true
-            }
+            },
+            swipeToClose: true,
         });
         return await modal.present();
     }
