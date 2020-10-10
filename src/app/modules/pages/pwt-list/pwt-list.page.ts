@@ -27,7 +27,9 @@ export class PwtListPage implements OnInit {
     async openPorts() {
         const modal = await this.modalController.create({
             component: PortsPage,
-            cssClass: 'my-custom-class'
+            componentProps: {
+                modalCalled: true
+            }
         });
         return await modal.present();
     }
