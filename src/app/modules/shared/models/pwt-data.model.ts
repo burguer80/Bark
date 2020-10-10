@@ -7,5 +7,9 @@ export interface PwtData {
     s_max: string;
     s_min: string;
     s_today: string;
+    r_avg: string;
+    r_max: string;
+    r_min: string;
+    r_today: string;
     time: string;
 }

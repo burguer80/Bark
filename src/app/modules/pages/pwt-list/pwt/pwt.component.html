@@ -1,7 +1,7 @@
-<ion-card>
+<ion-card *ngIf="pwt && port">
     <ion-card-header>
-        <ion-card-title class="crossing_name">West</ion-card-title>
-        <ion-label class="subtitle" color="medium">Calexico</ion-label>
+        <ion-card-title class="crossing_name">{{port.details.crossing_name || port.details.name}}</ion-card-title>
+        <ion-label class="subtitle" color="medium">{{port.details.name}}</ion-label>
     </ion-card-header>
 
     <ion-card-content>
@@ -13,7 +13,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            1h 40m
+                            {{pwt.data.private[0].s_avg}}m
                         </ion-label>
                     </ion-row>
                     <ion-row>
@@ -29,7 +29,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            1h 10m
+                            {{pwt.data.private[0].r_avg}}m
                         </ion-label>
                     </ion-row>
                     <ion-row>
@@ -45,7 +45,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            40m
+                            {{pwt.data.private[0].f_average}}m
                         </ion-label>
                     </ion-row>
                     <ion-row>
