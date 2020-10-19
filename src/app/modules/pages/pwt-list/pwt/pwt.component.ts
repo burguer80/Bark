@@ -3,6 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Port} from '../../../shared/models/port.model';
 import {Pwt} from '../../../shared/models/pwt.model';
 import {PwtEntityService} from '../../../store/pwt/pwt-entity.service';
+import {PortLane} from '../../../shared/models/port-lane.model';
 
 @Component({
     selector: 'app-pwt',
@@ -12,11 +13,31 @@ import {PwtEntityService} from '../../../store/pwt/pwt-entity.service';
 export class PwtComponent implements OnInit {
     @Input() port: Port;
     @Input() pwt: Pwt;
+    @Input() state: string;
 
     constructor(public pwtFacade: PwtEntityService) {
     }
 
     ngOnInit() {
+    }
+
+    public get selectedLane(): PortLane {
+        let selectedLane: PortLane = {};
+        switch (this.state) {
+            case 'commercial': {
+                selectedLane = this.pwt.lanes?.commercial;
+                break;
+            }
+            case 'pedestrian': {
+                selectedLane = this.pwt.lanes?.pedestrian;
+                break;
+            }
+            default: {
+                selectedLane = this.pwt.lanes?.private;
+                break;
+            }
+        }
+        return selectedLane;
     }
 
 }

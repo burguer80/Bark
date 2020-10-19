@@ -12,6 +12,11 @@
 
 <ion-content>
     <ng-container *ngFor=" let pwt of pwts$ | async">
-        <app-pwt [port]="portFacade.getFirstOrLoadPorts(pwt.id) | async" [pwt]="pwt"></app-pwt>
+        <app-pwt [port]="portFacade.getFirstOrLoadPorts(pwt.id) | async" [pwt]="pwt" [state]="selectedLane"></app-pwt>
     </ng-container>
 </ion-content>
+
+
+<ion-button (click)="selectCommercial('commercial')"> Commercial</ion-button>
+<ion-button (click)="selectCommercial('pedestrian')"> Pedestrian</ion-button>
+<ion-button (click)="selectCommercial('private')"> Private</ion-button>

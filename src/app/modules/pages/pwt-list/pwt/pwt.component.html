@@ -13,14 +13,14 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            {{pwt.data.private[0].s_avg}}m
+                            {{selectedLane?.standard?.delay_minutes}}m
                         </ion-label>
                     </ion-row>
                     <ion-row>
-                        <ion-label class="time-variation" color="danger">
-                            <ion-icon name="caret-up"></ion-icon>
-                            40m
-                        </ion-label>
+<!--                        <ion-label class="time-variation" color="danger">-->
+<!--                            <ion-icon name="caret-up"></ion-icon>-->
+<!--                            40m-->
+<!--                        </ion-label>-->
                     </ion-row>
                 </ion-col>
                 <ion-col>
@@ -29,14 +29,14 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            {{pwt.data.private[0].r_avg}}m
+                            {{selectedLane?.ready?.delay_minutes}}m
                         </ion-label>
                     </ion-row>
                     <ion-row>
-                        <ion-label class="time-variation" color="success">
-                            <ion-icon name="caret-down"></ion-icon>
-                            10m
-                        </ion-label>
+<!--                        <ion-label class="time-variation" color="success">-->
+<!--                            <ion-icon name="caret-down"></ion-icon>-->
+<!--                            10m-->
+<!--                        </ion-label>-->
                     </ion-row>
                 </ion-col>
                 <ion-col>
@@ -45,14 +45,14 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            {{pwt.data.private[0].f_average}}m
+                            {{selectedLane?.fast?.delay_minutes}}m
                         </ion-label>
                     </ion-row>
                     <ion-row>
-                        <ion-label class="time-variation" color="danger">
-                            <ion-icon name="caret-up"></ion-icon>
-                            40m
-                        </ion-label>
+<!--                        <ion-label class="time-variation" color="danger">-->
+<!--                            <ion-icon name="caret-up"></ion-icon>-->
+<!--                            40m-->
+<!--                        </ion-label>-->
                     </ion-row>
                 </ion-col>
             </ion-row>

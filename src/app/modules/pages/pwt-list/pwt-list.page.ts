@@ -13,6 +13,7 @@ import {PortsPage} from '../ports/ports.page';
 })
 export class PwtListPage implements OnInit {
     public pwts$: Observable<Pwt[]> = this.pwtFacade.entities$;
+    public selectedLane = 'commercial';
 
     constructor(
         private portFacade: PortEntityService,
@@ -33,5 +34,9 @@ export class PwtListPage implements OnInit {
             swipeToClose: true,
         });
         return await modal.present();
+    }
+
+    selectCommercial(state){
+        this.selectedLane = state;
     }
 }
