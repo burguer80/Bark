@@ -36,7 +36,8 @@ export class PwtListPage implements OnInit {
         return await modal.present();
     }
 
-    selectCommercial(state){
+    selectLane(state){
+        // TODO: Add lateTypes enum
         this.selectedLane = state;
     }
 }
