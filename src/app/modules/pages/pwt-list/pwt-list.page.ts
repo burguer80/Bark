@@ -16,7 +16,7 @@ export class PwtListPage implements OnInit {
     public selectedLane = 'commercial';
 
     constructor(
-        private portFacade: PortEntityService,
+        public portFacade: PortEntityService,
         private pwtFacade: PwtEntityService,
         public modalController: ModalController
     ) {

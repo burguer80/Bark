@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "borderbot-staging": {
+      "hosting": {
+        "app": [
+          "borderbot-staging"
+        ]
+      }
+    }
+  }
+}
