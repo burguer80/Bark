@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import * as moment from 'moment';
+import 'moment-duration-format';
 
 import {Port} from '../../../shared/models/port.model';
 import {Pwt} from '../../../shared/models/pwt.model';
@@ -38,6 +40,16 @@ export class PwtComponent implements OnInit {
             }
         }
         return selectedLane;
+    }
+
+    public get updatedTimeAgo(): string {
+        const timestamp = Date.parse(this.pwt.port_time);
+        const timeFormatted = new Date(timestamp);
+        return moment(timeFormatted).fromNow();
+    }
+
+    public minutesToHours(minutes: string): string {
+        return !!minutes ? moment.duration(minutes, 'minutes').format('h[h] m[m]') : '-';
     }
 
 }

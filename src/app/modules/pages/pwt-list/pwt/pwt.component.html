@@ -13,14 +13,10 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            {{selectedLane?.standard?.delay_minutes}}m
+                            {{minutesToHours(selectedLane?.standard?.delay_minutes)}}
                         </ion-label>
                     </ion-row>
                     <ion-row>
-<!--                        <ion-label class="time-variation" color="danger">-->
-<!--                            <ion-icon name="caret-up"></ion-icon>-->
-<!--                            40m-->
-<!--                        </ion-label>-->
                     </ion-row>
                 </ion-col>
                 <ion-col>
@@ -29,14 +25,10 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            {{selectedLane?.ready?.delay_minutes}}m
+                            {{minutesToHours(selectedLane?.ready?.delay_minutes)}}
                         </ion-label>
                     </ion-row>
                     <ion-row>
-<!--                        <ion-label class="time-variation" color="success">-->
-<!--                            <ion-icon name="caret-down"></ion-icon>-->
-<!--                            10m-->
-<!--                        </ion-label>-->
                     </ion-row>
                 </ion-col>
                 <ion-col>
@@ -45,20 +37,16 @@
                     </ion-row>
                     <ion-row>
                         <ion-label class="time-value" color="dark">
-                            {{selectedLane?.fast?.delay_minutes}}m
+                            {{minutesToHours(selectedLane?.fast?.delay_minutes)}}
                         </ion-label>
                     </ion-row>
                     <ion-row>
-<!--                        <ion-label class="time-variation" color="danger">-->
-<!--                            <ion-icon name="caret-up"></ion-icon>-->
-<!--                            40m-->
-<!--                        </ion-label>-->
                     </ion-row>
                 </ion-col>
             </ion-row>
         </ion-grid>
         <ion-label>
-            Updated 1 hour ago
+            {{updatedTimeAgo}}
         </ion-label>
     </ion-card-content>
 </ion-card>
