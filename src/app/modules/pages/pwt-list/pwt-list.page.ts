@@ -13,7 +13,7 @@ import {PortsPage} from '../ports/ports.page';
 })
 export class PwtListPage implements OnInit {
     public pwts$: Observable<Pwt[]> = this.pwtFacade.entities$;
-    public selectedLane = 'commercial';
+    public selectedLane = 'private';
 
     constructor(
         public portFacade: PortEntityService,
