@@ -21,6 +21,7 @@ export class PwtComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log(this.pwt.last_update_time);
     }
 
     public get selectedLane(): PortLane {
@@ -42,10 +43,14 @@ export class PwtComponent implements OnInit {
         return selectedLane;
     }
 
+    public get hasLastUpdateTime(): boolean {
+        return !!this.pwt.last_update_time;
+    }
+
     public get updatedTimeAgo(): string {
-        const timestamp = Date.parse(this.pwt.port_time);
+        const timestamp = Date.parse(this.pwt.last_update_time);
         const timeFormatted = new Date(timestamp);
-        return moment(timeFormatted).fromNow();
+        return this.hasLastUpdateTime ? moment(timeFormatted).fromNow() : '';
     }
 
     public minutesToHours(minutes: string): string {
