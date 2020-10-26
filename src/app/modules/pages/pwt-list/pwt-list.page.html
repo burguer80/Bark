@@ -15,8 +15,22 @@
         <app-pwt [port]="portFacade.getFirstOrLoadPorts(pwt.id) | async" [pwt]="pwt" [state]="selectedLane"></app-pwt>
     </ng-container>
 </ion-content>
-
 <!-- TODO: This buttons are only for test purposes should be improved-->
-<ion-button (click)="selectLane('commercial')">Commercial</ion-button>
-<ion-button (click)="selectLane('pedestrian')">Pedestrian</ion-button>
-<ion-button (click)="selectLane('private')">Private</ion-button>
+<ion-tabs>
+    <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="private" (click)="selectLane('private')" [selected]="selectedLane === 'private'">
+            <ion-icon name="car"></ion-icon>
+            <ion-label>Private</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="pedestrian" (click)="selectLane('pedestrian')" [selected]="selectedLane === 'pedestrian'">
+            <ion-icon name="walk"></ion-icon>
+            <ion-label>Pedestrian</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="commercial" (click)="selectLane('commercial')" [selected]="selectedLane === 'commercial'">
+            <ion-icon name="bus"></ion-icon>
+            <ion-label>Commercial</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>
