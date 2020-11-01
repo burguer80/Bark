@@ -6,6 +6,7 @@ import {Port} from '../../../shared/models/port.model';
 import {Pwt} from '../../../shared/models/pwt.model';
 import {PwtEntityService} from '../../../store/pwt/pwt-entity.service';
 import {PortLane} from '../../../shared/models/port-lane.model';
+import {LaneTypes} from '../../../shared/enums/lane-types.enum';
 
 @Component({
     selector: 'app-pwt',
@@ -15,7 +16,8 @@ import {PortLane} from '../../../shared/models/port-lane.model';
 export class PwtComponent implements OnInit {
     @Input() port: Port;
     @Input() pwt: Pwt;
-    @Input() state: string;
+    @Input() state: LaneTypes;
+    public laneTypes = LaneTypes;
 
     constructor(public pwtFacade: PwtEntityService) {
     }
@@ -27,11 +29,11 @@ export class PwtComponent implements OnInit {
     public get selectedLane(): PortLane {
         let selectedLane: PortLane = {};
         switch (this.state) {
-            case 'commercial': {
+            case this.laneTypes.Commercial: {
                 selectedLane = this.pwt.lanes?.commercial;
                 break;
             }
-            case 'pedestrian': {
+            case this.laneTypes.Pedestrian: {
                 selectedLane = this.pwt.lanes?.pedestrian;
                 break;
             }
