@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Pwt} from '../../shared/models/pwt.model';
 import {ModalController} from '@ionic/angular';
 import {PortsPage} from '../ports/ports.page';
+import {LaneTypes} from '../../shared/enums/lane-types.enum';
 
 @Component({
     selector: 'app-pwt-list',
@@ -13,11 +14,11 @@ import {PortsPage} from '../ports/ports.page';
 })
 export class PwtListPage implements OnInit {
     public pwts$: Observable<Pwt[]> = this.pwtFacade.entities$;
-    public selectedLane = 'private';
+    public laneTypes = LaneTypes;
 
     constructor(
         public portFacade: PortEntityService,
-        private pwtFacade: PwtEntityService,
+        public pwtFacade: PwtEntityService,
         public modalController: ModalController
     ) {
     }
@@ -25,7 +26,7 @@ export class PwtListPage implements OnInit {
     ngOnInit() {
     }
 
-    async openPorts() {
+    public async openPorts(): Promise<void> {
         const modal = await this.modalController.create({
             component: PortsPage,
             componentProps: {
@@ -34,10 +35,5 @@ export class PwtListPage implements OnInit {
             swipeToClose: true,
         });
         return await modal.present();
-    }
-
-    selectLane(state){
-        // TODO: Add lateTypes enum
-        this.selectedLane = state;
     }
 }

@@ -1,29 +1,54 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay" disabled>
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" disabled type="overlay">
+            <ion-content>
+                <ion-list id="inbox-list">
+                    <ion-list-header>Inbox</ion-list-header>
+                    <ion-note>hi@ionicframework.com</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+                    <ion-menu-toggle *ngFor="let p of appPages; let i = index" auto-hide="false">
+                        <ion-item (click)="selectedIndex = i" [class.selected]="selectedIndex == i" [routerLink]="[p.url]" detail="false"
+                                  lines="none" routerDirection="root">
+                            <ion-icon [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'" slot="start"></ion-icon>
+                            <ion-label>{{ p.title }}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+                <ion-list id="labels-list">
+                    <ion-list-header>Labels</ion-list-header>
 
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+                    <ion-item *ngFor="let label of labels" lines="none">
+                        <ion-icon ios="bookmark-outline" md="bookmark-sharp" slot="start"></ion-icon>
+                        <ion-label>{{ label }}</ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+    <ion-tabs *ngIf="(pwtFacade.selectedLane | async ) as selectedLane">
+        {{selectedLane}}
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button (click)="selectLane(laneTypes.Private)" [selected]="selectedLane === laneTypes.Private"
+                            tab="private">
+                <ion-icon name="car"></ion-icon>
+                <ion-label>Private</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button (click)="selectLane(laneTypes.Pedestrian)"
+                            [selected]="selectedLane === laneTypes.Pedestrian"
+                            tab="pedestrian">
+                <ion-icon name="walk"></ion-icon>
+                <ion-label>Pedestrian</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button (click)="selectLane(laneTypes.Commercial)"
+                            [selected]="selectedLane === laneTypes.Commercial"
+                            tab="commercial">
+                <ion-icon name="bus"></ion-icon>
+                <ion-label>Commercial</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
 </ion-app>
