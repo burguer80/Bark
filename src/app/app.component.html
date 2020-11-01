@@ -28,7 +28,6 @@
         <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>
     <ion-tabs *ngIf="(pwtFacade.selectedLane | async ) as selectedLane">
-        {{selectedLane}}
         <ion-tab-bar slot="bottom">
             <ion-tab-button (click)="selectLane(laneTypes.Private)" [selected]="selectedLane === laneTypes.Private"
                             tab="private">
