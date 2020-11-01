@@ -3,21 +3,19 @@
         <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-content>
     <ion-footer>
-        <ion-toolbar>
-            <ion-segment [value]="laneTypes.Private">
-                <ion-segment-button (click)="selectLane(laneTypes.Private)" [value]="laneTypes.Private">
-                    <ion-icon name="car"></ion-icon>
-                    <ion-label>{{laneTypes.Private}}</ion-label>
-                </ion-segment-button>
-                <ion-segment-button (click)="selectLane(laneTypes.Pedestrian)" [value]="laneTypes.Pedestrian">
-                    <ion-icon name="walk"></ion-icon>
-                    <ion-label>{{laneTypes.Pedestrian}}</ion-label>
-                </ion-segment-button>
-                <ion-segment-button (click)="selectLane(laneTypes.Commercial)" [value]="laneTypes.Commercial">
-                    <ion-icon name="bus"></ion-icon>
-                    <ion-label>{{laneTypes.Commercial}}</ion-label>
-                </ion-segment-button>
-            </ion-segment>
-        </ion-toolbar>
+        <ion-segment [value]="laneTypes.Private">
+            <ion-segment-button (click)="selectLane(laneTypes.Private)" [value]="laneTypes.Private">
+                <ion-icon name="car"></ion-icon>
+                <ion-label>{{laneTypes.Private}}</ion-label>
+            </ion-segment-button>
+            <ion-segment-button (click)="selectLane(laneTypes.Pedestrian)" [value]="laneTypes.Pedestrian">
+                <ion-icon name="walk"></ion-icon>
+                <ion-label>{{laneTypes.Pedestrian}}</ion-label>
+            </ion-segment-button>
+            <ion-segment-button (click)="selectLane(laneTypes.Commercial)" [value]="laneTypes.Commercial">
+                <ion-icon name="bus"></ion-icon>
+                <ion-label>{{laneTypes.Commercial}}</ion-label>
+            </ion-segment-button>
+        </ion-segment>
     </ion-footer>
 </ion-app>
