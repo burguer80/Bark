@@ -14,6 +14,6 @@ export class PwtDataService extends DefaultDataService<Pwt> {
     }
 
     getById(id: string | number): Observable<Pwt> {
-        return this.http.get<Pwt>(`${environment.herokuBackend}/pwt/${id}`);
+        return this.http.get<Pwt>(`${environment.herokuBackend}/latest_wait_times/${id}`);
     }
 }

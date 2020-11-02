@@ -2,13 +2,17 @@ import {Injectable} from '@angular/core';
 import {EntityCollectionServiceBase, EntityCollectionServiceElementsFactory} from '@ngrx/data';
 
 import {Pwt} from '../../shared/models/pwt.model';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
+import {LaneTypes} from '../../shared/enums/lane-types.enum';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PwtEntityService extends EntityCollectionServiceBase<Pwt> {
+    private selectedLaneSource = new BehaviorSubject<LaneTypes>(LaneTypes.Private);
+    selectedLane = this.selectedLaneSource.asObservable();
+
     constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
         super('Pwt', serviceElementsFactory);
     }
@@ -35,4 +39,7 @@ export class PwtEntityService extends EntityCollectionServiceBase<Pwt> {
         );
     }
 
+    public selectLane(lane: LaneTypes): void {
+        this.selectedLaneSource.next(lane);
+    }
 }

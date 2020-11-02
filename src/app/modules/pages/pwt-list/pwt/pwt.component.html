@@ -1,0 +1,52 @@
+<ion-card *ngIf="pwt && port">
+    <ion-card-header>
+        <ion-card-title class="crossing_name">{{port.details.crossing_name || port.details.name}}</ion-card-title>
+        <ion-label class="subtitle" color="medium">{{port.details.name}}</ion-label>
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-grid>
+            <ion-row class="times-container ion-margin-bottom" size="12">
+                <ion-col>
+                    <ion-row>
+                        <ion-label class="subtitle" color="medium">Standard</ion-label>
+                    </ion-row>
+                    <ion-row>
+                        <ion-label class="time-value" color="dark">
+                            {{minutesToHours(selectedLane?.standard?.delay_minutes)}}
+                        </ion-label>
+                    </ion-row>
+                    <ion-row>
+                    </ion-row>
+                </ion-col>
+                <ion-col>
+                    <ion-row>
+                        <ion-label class="subtitle" color="medium">Ready</ion-label>
+                    </ion-row>
+                    <ion-row>
+                        <ion-label class="time-value" color="dark">
+                            {{minutesToHours(selectedLane?.ready?.delay_minutes)}}
+                        </ion-label>
+                    </ion-row>
+                    <ion-row>
+                    </ion-row>
+                </ion-col>
+                <ion-col>
+                    <ion-row>
+                        <ion-label class="subtitle" color="medium">Sentri</ion-label>
+                    </ion-row>
+                    <ion-row>
+                        <ion-label class="time-value" color="dark">
+                            {{minutesToHours(selectedLane?.fast?.delay_minutes)}}
+                        </ion-label>
+                    </ion-row>
+                    <ion-row>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-label>
+            {{updatedTimeAgo}}
+        </ion-label>
+    </ion-card-content>
+</ion-card>
