@@ -77,6 +77,5 @@ export class PwtComponent implements OnInit {
 
 }
 
-// TODO: apply ngclass to call method in order to show display the proper color red/green
 // TODO: extract momentjs logic to a service
 // TODO: this code must be refactored is super ugly
