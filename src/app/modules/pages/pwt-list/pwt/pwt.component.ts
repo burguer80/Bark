@@ -23,7 +23,6 @@ export class PwtComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.pwt.last_update_time);
     }
 
     public get selectedLane(): PortLane {
