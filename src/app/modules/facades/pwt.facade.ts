@@ -12,9 +12,9 @@ import {PwtService} from '../shared/services/pwt.service';
 })
 export class PwtFacade {
     private isLoadingSource = new BehaviorSubject<boolean>(false);
-    public loading$ = this.isLoadingSource.asObservable(); // TODO: pending
+    public loading$ = this.isLoadingSource.asObservable();
     private loadedSource = new BehaviorSubject<boolean>(false);
-    public loaded$ = this.loadedSource.asObservable(); // TODO: pending
+    public loaded$ = this.loadedSource.asObservable();
     private pwtSource = new BehaviorSubject<Pwt[]>([]);
     public all: Observable<Pwt[]> = this.pwtSource.asObservable();
     private selectedLaneSource = new BehaviorSubject<LaneTypes>(LaneTypes.Private);
