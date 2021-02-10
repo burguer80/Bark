@@ -14,7 +14,7 @@ import {PortListRow} from '../shared/models/port-list-row.model';
 })
 export class PortFacade {
     private isLoadingSource = new BehaviorSubject<boolean>(false);
-    public isLoading = this.isLoadingSource.asObservable(); // TODO: pending
+    public loading$ = this.isLoadingSource.asObservable(); // TODO: pending
     private loadedSource = new BehaviorSubject<boolean>(false);
     public loaded$ = this.loadedSource.asObservable(); // TODO: pending
     private portsSource = new BehaviorSubject<Port[]>([]);

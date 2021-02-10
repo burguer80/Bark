@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PortEntityService} from '../../../../../modules/store/port/port-entity.service';
 import {PwtEntityService} from '../../../../../modules/store/pwt/pwt-entity.service';
+import {PortFacade} from '../../../../../modules/facades/port.facade';
 
 @Component({
     selector: 'app-loading',
@@ -10,7 +10,7 @@ import {PwtEntityService} from '../../../../../modules/store/pwt/pwt-entity.serv
 export class LoadingComponent implements OnInit {
 
     constructor(
-        public portFacade: PortEntityService,
+        public portFacade: PortFacade,
         public pwtFacade: PwtEntityService,
     ) {
     }
