@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {PortEntityService} from '../../store/port/port-entity.service';
 import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 import {Observable} from 'rxjs';
 import {Pwt} from '../../shared/models/pwt.model';
 import {ModalController} from '@ionic/angular';
 import {PortsPage} from '../ports/ports.page';
 import {LaneTypes} from '../../shared/enums/lane-types.enum';
+import {PortFacade} from '../../facades/port.facade';
 
 @Component({
     selector: 'app-pwt-list',
@@ -17,7 +17,7 @@ export class PwtListPage implements OnInit {
     public laneTypes = LaneTypes;
 
     constructor(
-        public portFacade: PortEntityService,
+        public portFacade: PortFacade,
         public pwtFacade: PwtEntityService,
         public modalController: ModalController
     ) {
