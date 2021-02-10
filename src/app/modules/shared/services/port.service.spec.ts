@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PortEntityService } from './port-entity.service';
+import { PortService } from './port.service';
 
-describe('PortEntityService', () => {
-  let service: PortEntityService;
+describe('PortService', () => {
+  let service: PortService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PortEntityService);
+    service = TestBed.inject(PortService);
   });
 
   it('should be created', () => {

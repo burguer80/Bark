@@ -17,7 +17,7 @@
 
 <ion-content>
     <ion-list>
-        <ng-container *ngFor=" let port of portsListRows$ | async | portSearch:filterText ">
+        <ng-container *ngFor=" let port of this.portFacade.portListRows$ | async | portSearch:filterText ">
             <ion-item-divider>
                 <ion-label>{{port.name}}</ion-label>
             </ion-item-divider>

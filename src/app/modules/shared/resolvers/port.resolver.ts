@@ -3,12 +3,12 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {filter, first, tap} from 'rxjs/operators';
 
-import {PortEntityService} from '../../store/port/port-entity.service';
+import {PortFacade} from '../../facades/port.facade';
 
 @Injectable()
 export class PortResolver implements Resolve<boolean> {
     constructor(
-        private portFacade: PortEntityService,
+        private portFacade: PortFacade,
     ) {
     }
 
@@ -18,7 +18,7 @@ export class PortResolver implements Resolve<boolean> {
             .pipe(
                 tap(loaded => {
                     if (!loaded) {
-                        this.portFacade.loadPorts();
+                        this.portFacade.getAll();
                     }
                 }),
                 filter(loaded => !!loaded),

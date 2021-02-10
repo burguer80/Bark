@@ -1,14 +1,11 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
 import {take, tap} from 'rxjs/operators';
 
-
 import {ModalController} from '@ionic/angular';
-import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 import {Port} from '../../shared/models/port.model';
-import {PortEntityService} from '../../store/port/port-entity.service';
-import {PortListRow} from '../../shared/models/port-list-row.model';
 import {Router} from '@angular/router';
+import {PortFacade} from '../../facades/port.facade';
+import {PwtFacade} from '../../facades/pwt.facade';
 
 @Component({
     selector: 'app-ports',
@@ -19,13 +16,12 @@ import {Router} from '@angular/router';
 })
 export class PortsPage implements OnInit {
     @Input() modalCalled: false;
-    public portsListRows$: Observable<PortListRow[]> = this.portFacade.portListRows$;
     public filterText = '';
 
     constructor(
         public modalController: ModalController,
-        private portFacade: PortEntityService,
-        public pwtFacade: PwtEntityService,
+        public portFacade: PortFacade,
+        public pwtFacade: PwtFacade,
         private router: Router,
     ) {
     }

@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {PortEntityService} from '../../store/port/port-entity.service';
-import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
-import {Observable} from 'rxjs';
-import {Pwt} from '../../shared/models/pwt.model';
 import {ModalController} from '@ionic/angular';
 import {PortsPage} from '../ports/ports.page';
 import {LaneTypes} from '../../shared/enums/lane-types.enum';
+import {PortFacade} from '../../facades/port.facade';
+import {PwtFacade} from '../../facades/pwt.facade';
 
 @Component({
     selector: 'app-pwt-list',
@@ -13,12 +11,11 @@ import {LaneTypes} from '../../shared/enums/lane-types.enum';
     styleUrls: ['./pwt-list.page.scss'],
 })
 export class PwtListPage implements OnInit {
-    public pwts$: Observable<Pwt[]> = this.pwtFacade.entities$;
     public laneTypes = LaneTypes;
 
     constructor(
-        public portFacade: PortEntityService,
-        public pwtFacade: PwtEntityService,
+        public portFacade: PortFacade,
+        public pwtFacade: PwtFacade,
         public modalController: ModalController
     ) {
     }

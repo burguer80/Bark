@@ -1,21 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { PortsPage } from './ports.page';
-import {PortResolver} from '../../shared/resolvers/port.resolver';
+import {PortsPage} from './ports.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PortsPage,
-    resolve: {
-      port: PortResolver,
+    {
+        path: '',
+        component: PortsPage,
     }
-  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class PortsPageRoutingModule {}
+export class PortsPageRoutingModule {
+}

@@ -3,12 +3,12 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {filter, take, tap} from 'rxjs/operators';
 
-import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
+import {PwtFacade} from '../../facades/pwt.facade';
 
 @Injectable()
 export class PwtResolver implements Resolve<boolean> {
     constructor(
-        private pwtFacade: PwtEntityService,
+        private pwtFacade: PwtFacade,
     ) {
     }
 
@@ -19,7 +19,7 @@ export class PwtResolver implements Resolve<boolean> {
             .pipe(
                 tap((loaded) => {
                     if (!loaded) {
-                        this.pwtFacade.getByKey(portId);
+                        this.pwtFacade.getFirstOrLoadPwt(portId);
                     }
                 }),
                 filter(loaded => !!loaded),

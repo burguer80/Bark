@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PwtDataService } from './pwt-data.service';
+import { PwtService } from './pwt.service';
 
-describe('PwtDataService', () => {
-  let service: PwtDataService;
+describe('PwtService', () => {
+  let service: PwtService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PwtDataService);
+    service = TestBed.inject(PwtService);
   });
 
   it('should be created', () => {

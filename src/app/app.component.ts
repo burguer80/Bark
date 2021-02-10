@@ -3,8 +3,9 @@ import {Component, OnInit} from '@angular/core';
 import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
-import {PwtEntityService} from './modules/store/pwt/pwt-entity.service';
 import {LaneTypes} from './modules/shared/enums/lane-types.enum';
+import {PwtFacade} from './modules/facades/pwt.facade';
+import {PortFacade} from './modules/facades/port.facade';
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
 
     constructor(
         private platform: Platform,
-        public pwtFacade: PwtEntityService,
+        public pwtFacade: PwtFacade,
+        public portFacade: PortFacade,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar
     ) {
@@ -31,6 +33,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.portFacade.getAll();
     }
 
     public selectLane(lane: LaneTypes): void {
