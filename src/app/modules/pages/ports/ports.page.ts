@@ -2,10 +2,10 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {take, tap} from 'rxjs/operators';
 
 import {ModalController} from '@ionic/angular';
-import {PwtEntityService} from '../../store/pwt/pwt-entity.service';
 import {Port} from '../../shared/models/port.model';
 import {Router} from '@angular/router';
 import {PortFacade} from '../../facades/port.facade';
+import {PwtFacade} from '../../facades/pwt.facade';
 
 @Component({
     selector: 'app-ports',
@@ -21,7 +21,7 @@ export class PortsPage implements OnInit {
     constructor(
         public modalController: ModalController,
         public portFacade: PortFacade,
-        public pwtFacade: PwtEntityService,
+        public pwtFacade: PwtFacade,
         private router: Router,
     ) {
     }
