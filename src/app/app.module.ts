@@ -9,7 +9,6 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {EntityStoreModule} from './modules/store/entity-store.module';
 import {LoadingComponent} from './src/app/modules/shared/loading/loading.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import {LoadingComponent} from './src/app/modules/shared/loading/loading.compone
         IonicModule.forRoot(),
         AppRoutingModule,
         HttpClientModule,
-        EntityStoreModule
     ],
     providers: [
         StatusBar,
