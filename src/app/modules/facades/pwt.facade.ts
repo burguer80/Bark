@@ -26,7 +26,7 @@ export class PwtFacade {
     }
 
     public delete(id: string | number): void {
-
+        this.removeById(id);
     }
 
     public getFirstOrLoadPwt(id: string | number): Observable<Pwt> {
@@ -53,5 +53,16 @@ export class PwtFacade {
 
     public selectLane(lane: LaneTypes): void {
         this.selectedLaneSource.next(lane);
+    }
+
+    private removeById(id: string | number): void {
+        const pwtList: Pwt[] = this.pwtSource.getValue();
+        const matchIndex: string | number = pwtList.findIndex((pwt) => {
+            return pwt.id === id;
+        });
+        if (matchIndex >= 0) {
+            pwtList.splice(matchIndex, 1);
+        }
+        this.pwtSource.next(pwtList);
     }
 }
