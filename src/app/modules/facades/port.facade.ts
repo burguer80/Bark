@@ -16,7 +16,7 @@ export class PortFacade {
     private isLoadingSource = new BehaviorSubject<boolean>(false);
     public isLoading = this.isLoadingSource.asObservable(); // TODO: pending
     private loadedSource = new BehaviorSubject<boolean>(false);
-    public loaded = this.loadedSource.asObservable(); // TODO: pending
+    public loaded$ = this.loadedSource.asObservable(); // TODO: pending
     private portsSource = new BehaviorSubject<Port[]>([]);
     public all: Observable<Port[]> = this.portsSource.asObservable();
 
@@ -58,7 +58,10 @@ export class PortFacade {
             take(1),
             tap((ports) => this.portsSource.next(ports)),
             catchError(async () => console.error(LocalizedStrings.errorGeneric)),
-            finalize(() => this.isLoadingSource.next(false))
+            finalize(() => {
+                this.isLoadingSource.next(false);
+                this.loadedSource.next(true);
+            })
         ).subscribe();
 
         // this.http.get<Port[]>(`${environment.herokuBackend}/ports`).subscribe((ports: Port[]) => {
