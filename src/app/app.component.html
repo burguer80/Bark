@@ -4,7 +4,7 @@
         <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-content>
     <ion-footer>
-        <ion-segment [value]="laneTypes.Private">
+        <ion-segment [disabled]="(pwtFacade.all | async)?.length==0" [value]="laneTypes.Private">
             <ion-segment-button (click)="selectLane(laneTypes.Private)" [value]="laneTypes.Private">
                 <ion-icon name="car"></ion-icon>
                 <ion-label>{{laneTypes.Private}}</ion-label>

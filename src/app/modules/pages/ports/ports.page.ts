@@ -27,7 +27,6 @@ export class PortsPage implements OnInit {
     }
 
     ngOnInit() {
-        this.portFacade.getAll();
     }
 
     public async dismissModal() {

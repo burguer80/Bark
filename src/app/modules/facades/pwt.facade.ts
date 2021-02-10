@@ -18,6 +18,8 @@ export class PwtFacade {
     private pwtSource = new BehaviorSubject<Pwt[]>([]);
     public all: Observable<Pwt[]> = this.pwtSource.asObservable();
     private selectedLaneSource = new BehaviorSubject<LaneTypes>(LaneTypes.Private);
+    public selectedLane = this.selectedLaneSource.asObservable();
+
 
     constructor(
         private http: HttpClient,
@@ -32,10 +34,11 @@ export class PwtFacade {
     public getFirstOrLoadPwt(id: string | number): Observable<Pwt> {
         return this.getFirstPwt(id).pipe(
             filter(pwt => !pwt),
+            tap(() => this.isLoadingSource.next(true)),
             switchMap(() => this.pwtService.getByKey(id)),
-            tap((pwt) => {
-                this.pwtSource.next(this.pwtSource.getValue().concat([pwt]));
-            }),
+            tap((pwt) => this.pwtSource.next(this.pwtSource.getValue().concat([pwt]))),
+            tap(() => this.loadedSource.next(true)),
+            tap(() => this.isLoadingSource.next(false)),
         );
     }
 

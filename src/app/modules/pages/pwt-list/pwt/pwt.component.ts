@@ -4,9 +4,9 @@ import 'moment-duration-format';
 
 import {Port} from '../../../shared/models/port.model';
 import {Pwt} from '../../../shared/models/pwt.model';
-import {PwtEntityService} from '../../../store/pwt/pwt-entity.service';
 import {PortLane} from '../../../shared/models/port-lane.model';
 import {LaneTypes} from '../../../shared/enums/lane-types.enum';
+import {PwtFacade} from '../../../facades/pwt.facade';
 
 @Component({
     selector: 'app-pwt',
@@ -19,14 +19,11 @@ export class PwtComponent implements OnInit {
     @Input() state: LaneTypes;
     public laneTypes = LaneTypes;
 
-    constructor(public pwtFacade: PwtEntityService) {
-    }
-
-    ngOnInit() {
+    constructor(public pwtFacade: PwtFacade) {
     }
 
     public get selectedLane(): PortLane {
-        let selectedLane: PortLane = {};
+        let selectedLane: PortLane;
         switch (this.state) {
             case this.laneTypes.Commercial: {
                 selectedLane = this.pwt.lanes?.commercial;
@@ -52,6 +49,9 @@ export class PwtComponent implements OnInit {
         const timestamp = Date.parse(this.pwt.last_update_time);
         const timeFormatted = new Date(timestamp);
         return this.hasLastUpdateTime ? moment(timeFormatted).fromNow() : '';
+    }
+
+    ngOnInit() {
     }
 
     public minutesToHours(minutes: string): string {
