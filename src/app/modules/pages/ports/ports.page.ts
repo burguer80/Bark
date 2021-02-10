@@ -9,6 +9,7 @@ import {Port} from '../../shared/models/port.model';
 import {PortEntityService} from '../../store/port/port-entity.service';
 import {PortListRow} from '../../shared/models/port-list-row.model';
 import {Router} from '@angular/router';
+import {PortFacade} from '../../facades/port.facade';
 
 @Component({
     selector: 'app-ports',
@@ -24,13 +25,14 @@ export class PortsPage implements OnInit {
 
     constructor(
         public modalController: ModalController,
-        private portFacade: PortEntityService,
+        private portFacade: PortFacade,
         public pwtFacade: PwtEntityService,
         private router: Router,
     ) {
     }
 
     ngOnInit() {
+        this.portFacade.getAll();
     }
 
     public async dismissModal() {
